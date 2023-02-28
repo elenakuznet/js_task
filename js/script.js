@@ -1,3 +1,6 @@
+const app = document.getElementById('app');
+
+
 const flowers = [
     {
         url: 'https://images.unsplash.com/photo-1661422369728-78a7df22606f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
@@ -31,4 +34,24 @@ const flowers = [
         url: 'https://images.unsplash.com/photo-1615280825886-fa817c0a06cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
         title: "Cherry Blossom",
     }
-]
+];
+
+function addImage() {
+
+    const ul = document.createElement('ul');
+
+    ul.setAttribute ('style', 'display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; align-items: center; list-style: none;');
+
+    for (i = 0; i <= flowers.length - 1; i++) {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <img src="${flowers[i].url}" alt="">
+            <p>${flowers[i].title}</p> 
+            `;
+        ul.appendChild(li);
+    }
+
+    app.appendChild(ul);
+};
+
+addImage();
